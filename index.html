@@ -1,93 +1,77 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="am" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ቤተ ሊቃውንት</title>
+
+  <meta
+    name="description"
+    content="ቤተ ሊቃውንት — የመንፈሳዊ ጥያቄና መልስ፣ ትምህርትና መመሪያ ማዕከል።"
+  >
+
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Arial,sans-serif;
-      background:#f7f3ea;
-      color:#222;
-      line-height:1.7;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    header{
-      background:#173b2b;
-      color:white;
-      padding:22px 15px;
-      text-align:center;
-    }
-    header h1{font-size:32px}
-    header p{color:#e8d9a8}
-    nav{
-      background:#102c20;
-      text-align:center;
-      padding:10px;
-    }
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin:0 12px;
-      font-weight:bold;
-    }
-    .hero{
-      padding:70px 20px;
-      text-align:center;
-      background:linear-gradient(135deg,#ead9a5,#f8f4e8);
-    }
-    .hero h2{
-      font-size:38px;
-      color:#173b2b;
-      margin-bottom:15px;
-    }
-    .hero p{font-size:18px}
-    .btn{
-      display:inline-block;
-      margin-top:25px;
-      padding:12px 25px;
-      background:#173b2b;
-      color:white;
-      text-decoration:none;
-      border-radius:8px;
-    }
-    section{
-      max-width:1000px;
-      margin:auto;
-      padding:50px 20px;
-    }
-    section h2{
-      text-align:center;
-      color:#173b2b;
-      margin-bottom:25px;
-      font-size:28px;
-    }
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
-    .card{
-      background:white;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 3px 12px #0002;
-      text-align:center;
-    }
-    .card h3{
-      color:#173b2b;
-      margin-bottom:10px;
-    }
-    footer{
-      background:#102c20;
-      color:white;
-      text-align:center;
-      padding:25px;
-    }
-  </style>
-</head>
 
-<body>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<header>
-  <h1>ቤተ
+    body {
+      font-family:
+        "Noto Sans Ethiopic",
+        "Abyssinica SIL",
+        Nyala,
+        Arial,
+        sans-serif;
+      background: #f7f3e8;
+      color: #173b2b;
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #071f15, #173b2b);
+      color: white;
+      text-align: center;
+      padding: 28px 15px 36px;
+      border-bottom: 4px solid #d4af37;
+    }
+
+    .church-name {
+      color: #f4d56b;
+      font-size: clamp(15px, 3vw, 21px);
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .logo {
+      width: 125px;
+      height: 125px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 12px;
+    }
+
+    .brand {
+      color: #f4d56b;
+      font-size: clamp(38px, 8vw, 62px);
+      font-weight: 900;
+      line-height: 1.25
