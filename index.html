@@ -1,519 +1,883 @@
 <!DOCTYPE html>
 <html lang="am">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ቤተ ሊቃውንት</title>
+<title>ቤተ ሊቃውንት</title>
 
-  <meta name="description"
-        content="ቤተ ሊቃውንት — የእምነት፣ የትምህርትና የመንፈሳዊ እውቀት ማዕከል። የተዋሕዶን እምነትና ትምህርት በቀላልና በሚስብ መልኩ ለማቅረብ።">
+<meta name="description"
+content="ቤተ ሊቃውንት - የእውቀት፣ የእምነትና የመረጃ ማዕከል">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+:root{
+  --green:#073b2d;
+  --green2:#0b4d3a;
+  --gold:#d3aa45;
+  --gold2:#b98d2f;
+  --cream:#f8f2df;
+  --white:#ffffff;
+  --text:#33433d;
+  --light:#fdfbf5;
+}
 
-    body {
-      font-family:
-        "Noto Sans Ethiopic",
-        "Abyssinica SIL",
-        Arial,
-        sans-serif;
-      background: #f7f1e3;
-      color: #173f32;
-      line-height: 1.9;
-    }
+body{
+  font-family:
+    "Noto Sans Ethiopic",
+    "Nyala",
+    "Abyssinica SIL",
+    Arial,
+    sans-serif;
+  background:var(--light);
+  color:var(--text);
+  line-height:1.9;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+/* =========================
+   HEADER
+========================= */
 
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
+header{
+  background:linear-gradient(145deg,#073b2d,#0b4d3a);
+  color:white;
+  text-align:center;
+  padding:30px 20px 28px;
+  border-bottom:4px solid var(--gold);
+}
 
-    /* HEADER */
-    header {
-      background: #073b2d;
-      color: white;
-      border-bottom: 4px solid #d6a83f;
-    }
+.logo{
+  width:125px;
+  height:125px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 42%,#fff 0 22%,transparent 23%),
+    linear-gradient(135deg,#f3c74c,#0b6b4d 48%,#d6ae42);
+  border:5px solid #e7c55b;
+  box-shadow:0 5px 20px rgba(0,0,0,.35);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
 
-    .hero {
-      text-align: center;
-      padding: 35px 20px 30px;
-    }
+.logo:before{
+  content:"✝";
+  color:#b98922;
+  font-size:48px;
+  font-weight:bold;
+  position:absolute;
+  top:13px;
+}
 
-    .logo {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 18px;
-    }
+.logo:after{
+  content:"📖";
+  font-size:35px;
+  position:absolute;
+  bottom:15px;
+}
 
-    .brand {
-      color: #f2c75c;
-      font-size: clamp(2rem, 6vw, 3.6rem);
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+.logoText{
+  position:absolute;
+  bottom:2px;
+  left:0;
+  right:0;
+  font-size:12px;
+  font-weight:bold;
+  color:white;
+}
 
-    .church-name {
-      color: #fff;
-      font-size: clamp(0.95rem, 2.8vw, 1.35rem);
-      font-weight: 600;
-    }
+header h1{
+  color:#f0ca50;
+  font-size:42px;
+  font-weight:800;
+  margin-bottom:4px;
+}
 
-    nav {
-      background: #062f24;
-      border-top: 1px solid rgba(214,168,63,.35);
-    }
+header p{
+  font-size:17px;
+  color:#fff;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 12px 10px;
-    }
+/* =========================
+   NAVIGATION
+========================= */
 
-    nav a {
-      display: block;
-      padding: 9px 17px;
-      border-radius: 25px;
-      color: #fff;
-      font-weight: 600;
-      transition: .2s;
-    }
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#052f24;
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
 
-    nav a:hover {
-      background: #d6a83f;
-      color: #073b2d;
-    }
+.nav-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:10px 15px;
+}
 
-    /* GENERAL */
-    section {
-      padding: 75px 0;
-    }
+nav a{
+  color:white;
+  text-decoration:none;
+  padding:9px 18px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:.25s;
+}
 
-    .section-title {
-      text-align: center;
-      color: #124b39;
-      font-size: clamp(1.7rem, 5vw, 2.5rem);
-      margin-bottom: 18px;
-      font-weight: 800;
-    }
+nav a:hover{
+  background:var(--gold);
+  color:#173a2e;
+}
 
-    .section-text {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      color: #59645e;
-      font-size: 1.05rem;
-    }
+/* =========================
+   GENERAL
+========================= */
 
-    /* WELCOME */
-    #home {
-      background:
-        linear-gradient(
-          rgba(247,241,227,.94),
-          rgba(247,241,227,.94)
-        );
-    }
+section{
+  padding:75px 20px;
+}
 
-    .intro {
-      text-align: center;
-      margin-bottom: 35px;
-    }
+.container{
+  max-width:1100px;
+  margin:auto;
+}
 
-    .intro h1 {
-      color: #124b39;
-      font-size: clamp(1.9rem, 5vw, 2.8rem);
-      margin-bottom: 15px;
-    }
+.section-title{
+  text-align:center;
+  color:var(--green);
+  font-size:34px;
+  margin-bottom:15px;
+}
 
-    .intro p {
-      max-width: 850px;
-      margin: auto;
-      color: #59645e;
-      font-size: 1.1rem;
-    }
+.section-text{
+  max-width:850px;
+  margin:0 auto 35px;
+  text-align:center;
+  font-size:18px;
+}
 
-    /* CALL CARD */
-    .call-card {
-      background: #fff;
-      max-width: 760px;
-      margin: 35px auto 0;
-      padding: 38px 25px;
-      text-align: center;
-      border-radius: 22px;
-      border: 1px solid #ddd5c4;
-      box-shadow: 0 10px 30px rgba(0,0,0,.07);
-    }
+/* =========================
+   HERO
+========================= */
 
-    .call-card h2 {
-      color: #124b39;
-      margin-bottom: 8px;
-      font-size: 1.7rem;
-    }
+.hero{
+  background:
+    radial-gradient(circle at top,#fffdf5,#f4ecd6);
+  text-align:center;
+  padding:80px 20px 75px;
+}
 
-    .call-card p {
-      color: #777;
-      margin-bottom: 20px;
-    }
+.hero h2{
+  color:var(--green);
+  font-size:38px;
+  margin-bottom:15px;
+}
 
-    .phone-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: #d3a33e;
-      color: white;
-      padding: 13px 30px;
-      border-radius: 14px;
-      font-size: 1.5rem;
-      font-weight: 800;
-      box-shadow: 0 7px 16px rgba(0,0,0,.14);
-      transition: .2s;
-    }
+.hero p{
+  max-width:850px;
+  margin:auto;
+  font-size:20px;
+}
 
-    .phone-button:hover {
-      background: #b98b2e;
-      transform: translateY(-2px);
-    }
+.question-box{
+  max-width:850px;
+  margin:40px auto 0;
+  background:white;
+  border:1px solid #ddd7c8;
+  border-radius:20px;
+  padding:32px 20px;
+  box-shadow:0 12px 35px rgba(53,47,27,.12);
+}
 
-    /* ABOUT */
-    #about {
-      background: #fffdf8;
-    }
+.question-box h3{
+  color:var(--green);
+  font-size:28px;
+  margin-bottom:8px;
+}
 
-    /* SERVICES */
-    #services {
-      background: #f7f1e3;
-    }
+.question-box p{
+  font-size:18px;
+  margin-bottom:20px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 38px;
-    }
+.call-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:linear-gradient(145deg,#d5ad4c,#b98b2d);
+  color:white;
+  text-decoration:none;
+  padding:13px 28px;
+  border-radius:12px;
+  font-size:22px;
+  font-weight:bold;
+  box-shadow:0 7px 15px rgba(133,95,26,.25);
+  transition:.25s;
+}
 
-    .card {
-      background: white;
-      padding: 30px 23px;
-      border-radius: 18px;
-      text-align: center;
-      border: 1px solid #ded8ca;
-      box-shadow: 0 7px 20px rgba(0,0,0,.06);
-    }
+.call-button:hover{
+  transform:translateY(-2px);
+}
 
-    .card h3 {
-      color: #124b39;
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-    }
+/* =========================
+   ABOUT
+========================= */
 
-    .card p {
-      color: #68716d;
-      font-size: .98rem;
-    }
+.about{
+  background:white;
+}
 
-    /* SUPPORT */
-    #support {
-      background: #fffdf8;
-    }
+.about-box{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
 
-    .support-box {
-      max-width: 850px;
-      margin: 35px auto 0;
-      background: #073b2d;
-      color: white;
-      padding: 45px 25px;
-      border-radius: 22px;
-      text-align: center;
-      border: 2px solid #d6a83f;
-    }
+.motto{
+  margin-top:25px;
+  padding:20px;
+  border-left:5px solid var(--gold);
+  border-right:5px solid var(--gold);
+  background:var(--cream);
+  color:var(--green);
+  font-size:22px;
+  font-weight:bold;
+}
 
-    .support-box h2 {
-      color: #f2c75c;
-      margin-bottom: 12px;
-      font-size: 1.9rem;
-    }
+/* =========================
+   CARDS
+========================= */
 
-    .support-box p {
-      color: #f1eee6;
-      margin-bottom: 24px;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:35px;
+}
 
-    /* CONTACT */
-    #contact {
-      background: #f7f1e3;
-      text-align: center;
-    }
+.card{
+  background:white;
+  padding:30px 22px;
+  border-radius:17px;
+  border:1px solid #e2ddce;
+  box-shadow:0 8px 25px rgba(0,0,0,.07);
+  text-align:center;
+  transition:.25s;
+}
 
-    .contact-box {
-      max-width: 650px;
-      margin: 30px auto 0;
-      background: white;
-      padding: 35px 20px;
-      border-radius: 20px;
-      border: 1px solid #ded8ca;
-    }
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 14px 30px rgba(0,0,0,.12);
+}
 
-    .contact-box h3 {
-      color: #124b39;
-      margin-bottom: 10px;
-    }
+.card-icon{
+  font-size:43px;
+  margin-bottom:10px;
+}
 
-    /* FOOTER */
-    footer {
-      background: #062f24;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      border-top: 3px solid #d6a83f;
-    }
+.card h3{
+  color:var(--green);
+  font-size:23px;
+  margin-bottom:8px;
+}
 
-    footer p {
-      color: #eee;
-      font-size: .95rem;
-    }
+.card p{
+  font-size:16px;
+}
 
-    /* MOBILE */
-    @media (max-width: 760px) {
-      .hero {
-        padding-top: 25px;
-      }
+/* =========================
+   FEATURES
+========================= */
 
-      .logo {
-        width: 125px;
-        height: 125px;
-      }
+.features{
+  background:var(--cream);
+}
 
-      nav ul {
-        gap: 2px;
-      }
+.feature-list{
+  max-width:900px;
+  margin:35px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
 
-      nav a {
-        padding: 7px 10px;
-        font-size: .9rem;
-      }
+.feature{
+  background:white;
+  padding:18px 20px;
+  border-radius:12px;
+  border-left:5px solid var(--gold);
+  font-weight:bold;
+}
 
-      section {
-        padding: 55px 0;
-      }
+/* =========================
+   STATS
+========================= */
 
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 17px;
-      }
+.stats{
+  background:var(--green);
+  color:white;
+}
 
-      .card {
-        padding: 25px 20px;
-      }
+.stats-grid{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  text-align:center;
+}
 
-      .call-card {
-        padding: 30px 18px;
-      }
+.stat{
+  padding:25px;
+}
 
-      .phone-button {
-        font-size: 1.3rem;
-        padding: 12px 25px;
-      }
-    }
-  </style>
+.stat strong{
+  display:block;
+  font-size:38px;
+  color:#e7c052;
+}
+
+.stat span{
+  font-size:17px;
+}
+
+/* =========================
+   RESOURCES
+========================= */
+
+.resources{
+  background:white;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  background:
+    linear-gradient(135deg,#f5efdd,#fffdf7);
+}
+
+.contact-box{
+  max-width:850px;
+  margin:auto;
+  background:white;
+  padding:35px 25px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.contact-item{
+  margin:12px 0;
+  font-size:18px;
+}
+
+.contact-item a{
+  color:var(--green);
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#052f24;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+}
+
+footer h3{
+  color:#e5c053;
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+footer p{
+  margin:5px 0;
+}
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+#topBtn{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:50%;
+  background:var(--gold);
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  display:none;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  header{
+    padding:25px 15px;
+  }
+
+  .logo{
+    width:110px;
+    height:110px;
+  }
+
+  header h1{
+    font-size:34px;
+  }
+
+  header p{
+    font-size:15px;
+  }
+
+  .nav-inner{
+    overflow-x:auto;
+    justify-content:flex-start;
+    white-space:nowrap;
+  }
+
+  nav a{
+    padding:8px 12px;
+    font-size:14px;
+  }
+
+  section{
+    padding:55px 16px;
+  }
+
+  .hero{
+    padding:60px 16px;
+  }
+
+  .hero h2{
+    font-size:29px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .section-title{
+    font-size:29px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .feature-list{
+    grid-template-columns:1fr;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .stat{
+    padding:14px;
+  }
+
+  .stat strong{
+    font-size:32px;
+  }
+
+  .question-box{
+    padding:25px 15px;
+  }
+
+  .question-box h3{
+    font-size:24px;
+  }
+
+  .motto{
+    font-size:18px;
+  }
+}
+
+@media(max-width:400px){
+  header h1{
+    font-size:29px;
+  }
+
+  .hero h2{
+    font-size:25px;
+  }
+
+  .call-button{
+    font-size:19px;
+    padding:12px 22px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="hero">
+<!-- ================= HEADER ================= -->
 
-      <!-- logo.png must be in the same repository folder as index.html -->
-      <img
-        src="logo.png"
-        alt="ቤተ ሊቃውንት ሎጎ"
-        class="logo"
-      >
+<header id="home">
 
-      <div class="brand">ቤተ ሊቃውንት</div>
+  <div class="logo">
+    <div class="logoText">ቤተ ሊቃውንት</div>
+  </div>
 
-      <div class="church-name">
-        የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያን
-      </div>
+  <h1>ቤተ ሊቃውንት</h1>
 
-    </div>
+  <p>የእውቀት፣ የእምነት መረጃ ማዕከል</p>
 
-    <nav>
-      <ul>
-        <li><a href="#home">መነሻ</a></li>
-        <li><a href="#about">ስለ እኛ</a></li>
-        <li><a href="#services">አገልግሎቶች</a></li>
-        <li><a href="#support">ድጋፍ</a></li>
-        <li><a href="#contact">ያግኙን</a></li>
-      </ul>
-    </nav>
-  </header>
+</header>
 
+<!-- ================= NAV ================= -->
 
-  <!-- HOME -->
-  <section id="home">
-    <div class="container">
+<nav>
+  <div class="nav-inner">
+    <a href="#home">መነሻ</a>
+    <a href="#question">ጥያቄ</a>
+    <a href="#about">ስለ ቤተ ሊቃውንት</a>
+    <a href="#services">አገልግሎቶች</a>
+    <a href="#resources">መረጃ</a>
+    <a href="#contact">ግንኙነት</a>
+  </div>
+</nav>
 
-      <div class="intro">
-        <h1>መንፈሳዊ ጥያቄዎች ይመልሱ</h1>
+<!-- ================= HERO ================= -->
 
-        <p>
-          በእምነት፣ በትምህርትና በመንፈሳዊ እውቀት
-          ልብን ለማበረታት፣ እውነትን ለመፈለግና
-          የተሻለ መንፈሳዊ ሕይወት ለመገንባት
-          እንሰራለን።
-        </p>
-      </div>
+<section class="hero" id="question">
 
-      <div class="call-card">
-        <h2>ጥያቄ አለዎት?</h2>
+  <div class="container">
 
-        <p>
-          በቀጥታ ይደውሉልን እና መልስ ያግኙ።
-        </p>
+    <h2>የእውቀት ጥያቄን ይጠይቁ</h2>
 
-        <a href="tel:2721" class="phone-button">
-          ☎ 2721
-        </a>
-      </div>
+    <p>
+      እንኳን ወደ ቤተ ሊቃውንት የእውቀትና
+      የእምነት መረጃ ማዕከል በደህና መጡ።
+    </p>
 
-    </div>
-  </section>
+    <div class="question-box">
 
+      <h3>ጥያቄ አለዎት?</h3>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-
-      <h2 class="section-title">ስለ ቤተ ሊቃውንት</h2>
-
-      <p class="section-text">
-        ቤተ ሊቃውንት የመንፈሳዊ ጥያቄዎችን፣
-        የእምነት ትምህርቶችንና ጠቃሚ መረጃዎችን
-        በቀላል፣ በግልጽና በሚስብ መልኩ
-        ለማቅረብ የተዘጋጀ መድረክ ነው።
+      <p>
+        በፈለጉት ጊዜ መረጃ ለማግኘት ያግኙን።
       </p>
 
+      <a class="call-button" href="tel:2721">
+        ☎ 2721
+      </a>
+
     </div>
-  </section>
 
+  </div>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
+</section>
 
-      <h2 class="section-title">አገልግሎቶች</h2>
+<!-- ================= ABOUT ================= -->
 
-      <div class="cards">
+<section class="about" id="about">
 
-        <div class="card">
-          <h3>ጥያቄና መልስ</h3>
-          <p>
-            የመንፈሳዊ ጥያቄዎችዎን በመጠየቅ
-            ተገቢውን መልስ ያግኙ።
-          </p>
-        </div>
+  <div class="container">
 
-        <div class="card">
-          <h3>መንፈሳዊ መረጃ</h3>
-          <p>
-            የእምነትና የመንፈሳዊ ሕይወት
-            ጠቃሚ መረጃዎችን ያግኙ።
-          </p>
-        </div>
+    <h2 class="section-title">
+      ስለ ቤተ ሊቃውንት
+    </h2>
 
-        <div class="card">
-          <h3>የጥሪ አገልግሎት</h3>
-          <p>
-            በ2721 ቁጥር በመደወል
-            ከእኛ ጋር በቀጥታ ይገናኙ።
-          </p>
-        </div>
+    <div class="about-box">
 
+      <p class="section-text">
+        ቤተ ሊቃውንት በእውቀት፣ በእምነትና
+        በትምህርት ዙሪያ ጠቃሚ መረጃዎችን
+        ለማቅረብ የተዘጋጀ የመረጃ ማዕከል ነው።
+      </p>
+
+      <div class="motto">
+        “በእውቀትና በእምነት መንገድ እንጓዝ።”
       </div>
 
     </div>
-  </section>
 
+  </div>
 
-  <!-- SUPPORT -->
-  <section id="support">
-    <div class="container">
+</section>
 
-      <h2 class="section-title">ለአስተያየትና ድጋፍ</h2>
+<!-- ================= SERVICES ================= -->
 
-      <div class="support-box">
+<section id="services">
 
-        <h2>የእርስዎ አስተያየት ይጠቅማል</h2>
+  <div class="container">
 
-        <p>
-          የሚሰጡን አስተያየቶችና ድጋፎች
-          ይህንን አገልግሎት ይበልጥ ለማሻሻል
-          ያግዙናል።
-        </p>
+    <h2 class="section-title">
+      አገልግሎቶች
+    </h2>
 
-        <a href="tel:2721" class="phone-button">
-          ☎ 2721
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-
-      <h2 class="section-title">ያግኙን</h2>
-
-      <div class="contact-box">
-
-        <h3>በቀጥታ ያግኙን</h3>
-
-        <p>
-          ለጥያቄ፣ ለአስተያየትና ለተጨማሪ መረጃ
-          ወደ 2721 ይደውሉ።
-        </p>
-
-        <br>
-
-        <a href="tel:2721" class="phone-button">
-          ☎ 2721
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-    <p>
-      © ቤተ ሊቃውንት — ሁሉም መብቶች የተጠበቁ ናቸው።
+    <p class="section-text">
+      ለጎብኚዎቻችን ቀላል፣ ጠቃሚና ተደራሽ
+      የመረጃ አገልግሎት ለማቅረብ ተዘጋጅቷል።
     </p>
-  </footer>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>ንባብ</h3>
+        <p>
+          የተለያዩ የእውቀትና የትምህርት
+          መረጃዎችን ለማንበብና ለመማር።
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔎</div>
+        <h3>ጥናት</h3>
+        <p>
+          ለጥናትና ለምርምር የሚያግዙ
+          መረጃዎችን ለማግኘት።
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <h3>ትምህርት</h3>
+        <p>
+          እውቀትን ለማስፋትና የተሻለ
+          ግንዛቤ ለመፍጠር።
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      የቤተ ሊቃውንት አላማ
+    </h2>
+
+    <p class="section-text">
+      እውቀትንና ጠቃሚ መረጃን በቀላሉ
+      ተደራሽ ማድረግ ዋና ትኩረታችን ነው።
+    </p>
+
+    <div class="feature-list">
+
+      <div class="feature">
+        ✓ ተደራሽ የመረጃ ማዕከል
+      </div>
+
+      <div class="feature">
+        ✓ ቀላልና ፈጣን አጠቃቀም
+      </div>
+
+      <div class="feature">
+        ✓ የእውቀት ማስፋፊያ
+      </div>
+
+      <div class="feature">
+        ✓ ለተለያዩ ተጠቃሚዎች ተስማሚ
+      </div>
+
+      <div class="feature">
+        ✓ በሞባይል ላይ ተስማሚ
+      </div>
+
+      <div class="feature">
+        ✓ የእምነትና የእውቀት ትስስር
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+  <div class="container">
+
+    <div class="stats-grid">
+
+      <div class="stat">
+        <strong>2721</strong>
+        <span>የመረጃ ስልክ</span>
+      </div>
+
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>የመረጃ ተደራሽነት</span>
+      </div>
+
+      <div class="stat">
+        <strong>1</strong>
+        <span>የእውቀት ማዕከል</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= RESOURCES ================= -->
+
+<section class="resources" id="resources">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      መረጃዎች
+    </h2>
+
+    <p class="section-text">
+      በቀጣይ የሚጨመሩ የመጽሐፍት፣ የጥናት፣
+      የሰነድና የእውቀት ምንጮችን እዚህ ማግኘት ይችላሉ።
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">📖</div>
+        <h3>መጽሐፍት</h3>
+        <p>
+          የንባብና የጥናት ምንጮች።
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📄</div>
+        <h3>ሰነዶች</h3>
+        <p>
+          ጠቃሚ ሰነዶችና መረጃዎች።
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <h3>እውቀት</h3>
+        <p>
+          የእውቀት ማስፋፊያ ይዘቶች።
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      ያግኙን
+    </h2>
+
+    <div class="contact-box">
+
+      <div class="contact-item">
+        ☎️ ስልክ:
+        <a href="tel:2721">2721</a>
+      </div>
+
+      <div class="contact-item">
+        📞 ሌላ የግንኙነት ስልክ:
+        <a href="tel:0962244464">0962244464</a>
+      </div>
+
+      <div class="contact-item">
+        ✉️ ኢሜይል:
+        <a href="mailto:info@betelikawunt.com">
+          info@betelikawunt.com
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <h3>ቤተ ሊቃውንት</h3>
+
+  <p>
+    በእውቀትና በእምነት መንገድ እንጓዝ።
+  </p>
+
+  <p>
+    © 2026 ቤተ ሊቃውንት — መብቱ የተጠበቀ ነው።
+  </p>
+
+</footer>
+
+<!-- ================= TOP BUTTON ================= -->
+
+<button id="topBtn" onclick="goTop()">↑</button>
+
+<script>
+
+window.addEventListener("scroll", function(){
+
+  const button = document.getElementById("topBtn");
+
+  if(window.scrollY > 400){
+    button.style.display = "block";
+  }else{
+    button.style.display = "none";
+  }
+
+});
+
+function goTop(){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+</script>
 
 </body>
 </html>
